@@ -3,16 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
     //
+    public function index(): Response {
+        return Inertia::render('posts/index', [
+            'posts' => Post::all(),
+        ]);
+    }
+
     public function show(Post $post): Response {
         return Inertia::render('posts/show', [
-            'post' => Post::findOrFail($post),
+            'post' => $post,
         ]);
     }
 }
