@@ -1,10 +1,8 @@
+import { Post } from "@/types";
 import AppLayout from "@/layouts/app-layout"
 
 interface PostsShowProps {
-    post: {
-        title: string,
-        body: string,
-    },
+    post: Post
 }
 
 export default function PostsShow({ post }: PostsShowProps) {

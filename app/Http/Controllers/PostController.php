@@ -12,7 +12,7 @@ class PostController extends Controller
     //
     public function index(): Response {
         return Inertia::render('posts/index', [
-            'posts' => Post::all(),
+            'posts' => Post::latest()->get(),
         ]);
     }
 

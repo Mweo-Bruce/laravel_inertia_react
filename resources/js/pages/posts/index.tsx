@@ -1,17 +1,30 @@
+import { Post } from "@/types";
+import { Link } from "@inertiajs/react";
 import AppLayout from "@/layouts/app-layout";
 
-interface Posts {
-    posts: {
-        title: string,
-        body: string,
-    }
+interface PostsIndexProps {
+    posts: Post[];
 }
 
-export default function Index({ posts }: Posts) {
+export default function PostsIndex({ posts }: PostsIndexProps) {
     return (
         <AppLayout>
-            <div>{posts.title}</div>
-            <p>{posts.body}</p>
+            <h1>Posts</h1>
+
+            {/* Check if there posts */}
+            {posts.length === 0 ? (
+                <div>No posts found.</div>
+            ) : (
+                <div>
+                    {posts.map(post => (
+                        <div>
+                            <h2>
+                                <Link href={`/posts/{post}`}>{post.title}</Link>
+                            </h2>
+                        </div>
+                    ))}
+                </div>
+            )}
         </AppLayout>
     );
 }
