@@ -6,7 +6,6 @@ export default function Home() {
         <AppLayout>
             <h1>Home - Updated</h1>
             <div>Welcome to home page</div>
-            <Link href="/about">About</Link>
         </AppLayout>
     );
 }
