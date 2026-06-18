@@ -9,9 +9,7 @@ export default function AppHeader() {
                 <nav className="flex items-center justify-between">
                     <AppHeaderLogo />
                     <div className="flex space-x-6">
-                        <Link href="/posts/create">
-                            Add Post
-                        </Link>
+                        <AppHeaderLink href="/posts/create">Add Post</AppHeaderLink>
                         <AppHeaderLink href="/">Home</AppHeaderLink>
                         <AppHeaderLink href="/posts">Posts</AppHeaderLink>
                         <AppHeaderLink href="/about">About</AppHeaderLink>
