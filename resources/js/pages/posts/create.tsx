@@ -1,6 +1,6 @@
-import AppLayout from "@/layouts/app-layout";
 import { cn } from "@/lib/utils";
 import { Form } from "@inertiajs/react";
+import AppLayout from "@/layouts/app-layout";
 
 export default function PostsCreate() {
     return (
