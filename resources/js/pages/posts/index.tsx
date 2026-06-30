@@ -1,5 +1,6 @@
 import { Post } from "@/types";
 import { Link } from "@inertiajs/react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import AppLayout from "@/layouts/app-layout";
 
 interface PostsIndexProps {
@@ -18,15 +19,21 @@ export default function PostsIndex({ posts }: PostsIndexProps) {
                 ) : (
                     <div>
                         {posts.map(post => (
-                            <article key={post.id} className="border-b-gray-200 pb-6 last:border-b-0">
-                                <h2 className="text-xl font-semibold mb-2">
-                                    <Link href={`/posts/${post.id}`}>{post.title}</Link>
-                                </h2>
-                                <p className="text-gray-600">
-                                    {post.body.substring(0, 200)}
-                                    {post.body.length > 200 && "..."}
-                                </p>
-                            </article>
+                            <Card key={post.id} className="border-b-0">
+                                <CardHeader>
+                                    <CardTitle>
+                                        <Link href={`/posts/${post.id}`}>{post.title}</Link>                                        
+                                    </CardTitle>
+
+                                    <CardDescription>
+                                        By ...
+                                    </CardDescription>
+                                </CardHeader>
+                                    <CardContent>
+                                        {post.body.substring(0, 200)}
+                                        {post.body.length > 200 && "..."}
+                                    </CardContent>
+                            </Card>
                         ))}
                     </div>
                 )}
